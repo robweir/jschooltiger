@@ -1,1 +1,32 @@
 /*Styles go here*/
+body {
+    line-height: 1.4em;
+}
+
+#container {
+    width: 95%;
+    margin: 0 auto;
+}
+
+h1 {
+    font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
+    font-size: 2em;
+    margin-bottom: 0.8em;
+}
+
+p {
+    font-family: "Merriweather", Georgia, "Times New Roman", serif;
+    font-size: 1em;
+    margin-bottom: 0.5em;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-around;
+}
+
+nav ul li a {
+    font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
+    text-decoration: none;
+    margin-bottom: 1em;
+}
