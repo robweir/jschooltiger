@@ -1,4 +1,8 @@
 /*Styles go here*/
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 body {
     line-height: 1.4em;
 }
@@ -8,16 +12,24 @@ body {
     margin: 0 auto;
 }
 
-h1 {
+h1, h2, h3, h4, h5, h6 {
     font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
+}
+
+h1 {
     font-size: 2em;
+    margin-bottom: 0.8em;
+}
+
+h2 {
+    font-size: 1.5em;
     margin-bottom: 0.8em;
 }
 
 p {
     font-family: "Merriweather", Georgia, "Times New Roman", serif;
     font-size: 1em;
-    margin-bottom: 0.5em;
+    margin-bottom: 0.8em;
 }
 
 nav ul {
@@ -29,4 +41,10 @@ nav ul li a {
     font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
     text-decoration: none;
     margin-bottom: 1em;
+}
+
+.logo {
+    border-radius: 50%;
+    width: 4em;
+    float: left;
 }
