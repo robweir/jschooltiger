@@ -32,6 +32,12 @@ p {
     margin-bottom: 0.8em;
 }
 
+.caption {
+    font-size: 0.7em;
+    text-align: right;
+    margin-top: 0;
+}
+
 nav ul {
     display: flex;
     justify-content: space-between;
