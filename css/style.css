@@ -19,6 +19,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
     font-size: 2em;
+    margin-top: 0.5em; 
 }
 
 h2 {
@@ -36,6 +37,13 @@ p {
     font-size: 0.7em;
     text-align: right;
     margin-top: 0;
+}
+
+.dateline {
+    font-family: "Merriweather Sans", Helvetica, Arial, sans-serif;
+    font-size: 0.7em;
+    color: #aaa;
+    margin-bottom: 0;
 }
 
 nav ul {
