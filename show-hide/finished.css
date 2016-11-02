@@ -123,6 +123,11 @@ img, .caption {
         max-width: 60em;
     }
 
+    #bar {
+        background-color: #ADD8E6;
+        padding: 10px;
+    }
+
     article {
         max-width: 40em;
         margin-left: 5em;
