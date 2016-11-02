@@ -7,4 +7,28 @@
 
 \f0\fs36 \cf0 Show/hide items with media queries\
 \
-}
+We\'92re going to play around with showing and hiding items with media queries. Because our default is to have this shown as a mobile site, what I\'92m going to do is to try and hide it by default on mobile, and then show it on a larger site. \
+\
+Important; don\'92t forget that the elements are just hidden here, they\'92e still going to be downloaded. The problem that can be caused by hiding elements on mobile screens is that they\'92re still there, just hidden. \
+\
+There are two ways to show or not show items on the page: using the CSS display property, or the css visibility property. \
+\
+Let\'92s start with visibility and we\'92ll hide this image on the page: \
+\
+img \{visibility: hidden\}\
+\
+The opposite property is the default one, visibility: visible. \
+\
+The problem with that is the command hides the element, but it still populates the space on the page. You can use visibility hidden for some reasons \'97 you see it sometimes in carousels when you have items that need to take up some space but not be shown.\
+\
+The other way to do this is by using the display property. We\'92ve used this before to display items as block or as inline but there\'92s also a \'93none\'94 property. There\'92s not really an opposite to this, but let\'92s start with getting rid of our image and caption: \
+\
+img, .caption \{\
+	display: none; \
+\}\
+\
+and then in our media queries we can restore those by using their opposite number: \
+\
+img, .caption \{\
+	display:block; \
+\}}
