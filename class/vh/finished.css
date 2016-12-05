@@ -110,6 +110,8 @@ img {
 Full screen background example specific styles
 ============================================*/
 
+/*============ negative margin example
+
 .cover {
     margin-top: -65px;
     position: relative;
@@ -118,8 +120,18 @@ Full screen background example specific styles
 
 h1 {
     padding-left: 10px;
-    padding-top: 10px; 
-}
+    padding-top: 10px;
+}============= end of negative margin example */
+
+/*=============set the background on just the h1 
+
+h1 {
+    background: #bd5532;
+    background-image: url('img/wp.png');
+    background-size: 100% auto;
+}*/
+
+
 
 @media screen and (min-width: 600px) {
 

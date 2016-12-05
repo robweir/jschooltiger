@@ -26,13 +26,36 @@ let\'92s start by putting a class of \'93cover\'94 on that image. We can use tha
 Let\'92s start by pretending we might want to have that h1 over the photo. \
 \
 .cover \{\
-    margin-top: -65px;\
-    position: relative;\
-    z-index: -10;\
+    margin-top: -65px; //moves photo up into header \
+    position: relative; //required to have the z-index property work \
+    z-index: -10; \
 \}\
 \
 Now that moves the h1 over the photo, but we might want to move it a little bit around depending on what\'92s going on with it. \
 \
+h1 \{\
+    padding-left: 10px;\
+    padding-top: 10px;\
+\}\
+\
 The problem with this is that it\'92s dependent vastly on positioning and it breaks down in smaller spaces. \
 \
-An alternative, of course, is to just photoshop the text onto the photo, but that\'92s bad for accessibility and if the photo gets small, the text gets unrecognizable small. }
+An alternative, of course, is to just photoshop the text onto the photo, but that\'92s bad for accessibility and if the photo gets small, the text gets unrecognizable small. \
+\
+Let\'92s do a different technique, and bring this in as a background image. We haven\'92t played with this much in CSS, but in old versions of the Web putting a background image (such as a texture) on your site was the absolute coolest. \
+\
+Anyhow, let\'92s say we want to put a background image on a thing. In this case, we could put a background image on the h1 and see what happens: \
+\
+h1 \{\
+    background: #bd5532; //this sets the initial color in case the image doesn\'92t appear \
+    background-image: url('img/wp.png');\
+    background-size: 100% auto; //first unit is width, second height \
+\}\
+\
+Well \'85 that was disappointing. Keep in mind that\'92s set on just the h1, so the box that the CSS draws will set itself just there. \
+\
+We could do this a different way, by setting the h1 inside of a header element and applying the background to the header element: \
+\
+\
+\
+}
