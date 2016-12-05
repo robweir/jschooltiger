@@ -82,4 +82,45 @@ h1 \{\
     color: white;\
     padding: 1em; \
 \}\
+\
+So what if we want to make this full width or full height? Couple of options. \
+\
+Right now it\'92s set to be the full width of its containing element. \
+\
+We have a few different ways to style it: \
+\
+header \{\
+     width: 100%; \
+\}\
+\
+makes it \'85 not change. \
+\
+header \{\
+    width: 100vw; \
+\}\
+\
+makes it 100 percent of the viewport width, but we get a scroll. Why is that? Because it starts drawing where the site logic says it should, from the left area of where it\'92s currently drawn. \
+\
+Let\'92s comment out a couple of things: first, your 600px media query; second, the parts of the media query other than the nav ul information (nav ul and nav ul li) \
+\
+Let\'92s also comment out the container css on line 10. \
+\
+Now we have an almost full viewport width image. If we look in the web inspector, we\'92ll see that the body has 8px of margin set all the way around it, which is a thing the browser will do by default. We can go and get rid of that, up at the top of the stylesheet, in the existing body command: \
+\
+body \{\
+    margin:0; \
+\}\
+\
+Now we have a true full width header image, but it\'92s obviously cropped. The \'93cover\'94 command will do that \'97 it will fill the whole available size but may crop parts of the image. \
+\
+Let\'92s try this as a 100vh element: \
+\
+header \{\
+    height: 100vh; \
+\}\
+\
+So this will give us a full page image regardless of the height of the viewport. \
+\
+If we want this to be the first thing we see on the page, can change it in the html: \
+\
 }
