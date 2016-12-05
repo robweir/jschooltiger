@@ -9,4 +9,30 @@
 \
 So there are a couple of different ways to do a fullpage background or to make an image stretch from place to place. We\'92re going to look at those today using an image that I have saved on my site. \
 \
-The way we\'92ve seen }
+The way we\'92ve seen this done in the past is usually something where we\'92ve had a really large image that has a percentage width for its, uh, width. The issue with those images is that they can cut off and have to scroll to be seen: \
+\
+https://thegreatdiscontent.com/interview/omar-j-dorsey\
+\
+There are other solutions to this, but a lot of the time they\'92ll hijack the scroll function to do their thing: \
+\
+http://www.nationalgeographic.com/magazine/2016/05/yellowstone-national-parks-elk-migration-map/\
+\
+So we can take a few different paths to do a full-screen or full-width background image that still would have text as a part of it. \
+\
+So a common way to try to move text over an image is to fiddle with the margins. Let\'92s do that and also use the z-index to see what we can do: \
+\
+let\'92s start by putting a class of \'93cover\'94 on that image. We can use that to move it around a bit. \
+\
+Let\'92s start by pretending we might want to have that h1 over the photo. \
+\
+.cover \{\
+    margin-top: -65px;\
+    position: relative;\
+    z-index: -10;\
+\}\
+\
+Now that moves the h1 over the photo, but we might want to move it a little bit around depending on what\'92s going on with it. \
+\
+The problem with this is that it\'92s dependent vastly on positioning and it breaks down in smaller spaces. \
+\
+An alternative, of course, is to just photoshop the text onto the photo, but that\'92s bad for accessibility and if the photo gets small, the text gets unrecognizable small. }
