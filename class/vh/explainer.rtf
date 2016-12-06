@@ -121,6 +121,35 @@ header \{\
 \
 So this will give us a full page image regardless of the height of the viewport. \
 \
-If we want this to be the first thing we see on the page, can change it in the html: \
+If we want this to be the first thing we see on the page, can change it in the html (move menu down below other items) \
+\
+It\'92s also worth pointing out that this technique can be used with items that aren\'92t just a background image, if you want to have a pagination technique. To do that, let\'92s just comment out that menu entirely, and then let\'92s do some work with the \'93articles\'94 we have around our lorem ipsum text. \
+\
+What we can do first is to give each article a height: \
+\
+article \{\
+    height: 100vh; \
+\}\
+\
+Which will \'93paginate\'94 them, though they look odd in those spots. Let\'92s fix those up a bit: \
+\
+article \{\
+    height: 100vh;\
+    display: flex;\
+\}\
+\
+article p \{\
+    width: 400px; //this is arbitrary\
+    height: 500px; //so is this\
+    margin: auto; \
+\}\
+ \
+and then we can put in alternating background colors for our \'93pages\'94: \
+\
+.article-2, .article-4 \{\
+    background-color: yellow;\
+\}\
+\
+\
 \
 }

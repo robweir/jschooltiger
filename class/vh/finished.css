@@ -137,7 +137,7 @@ header {
     background-image: url('img/wp.png');
     background-size: cover;
     padding: 2rem 0;
-    margin: 0; 
+    margin: 0;
     /*width: 100vw;*/
     height: 100vh;
 }
@@ -146,6 +146,22 @@ h1 {
     color: white;
     padding: 1em;
 }
+
+article {
+    height: 100vh;
+    display: flex;
+}
+
+article p {
+    width: 400px;
+    height: 500px;
+    margin: auto;
+}
+
+.article-2, .article-4 {
+    background-color: yellow;
+}
+
 
 /*@media screen and (min-width: 600px) {
 
