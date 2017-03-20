@@ -127,7 +127,7 @@ Cards example specific styles
     padding: 10px;
 }
 
-@media screen and (min-width: 600px) {
+/*@media screen and (min-width: 600px) {
 
     #container {
         width: 80%;
@@ -162,4 +162,4 @@ Cards example specific styles
     nav ul li {
         margin-left: 1.8em;
     }
-}
+}*/
