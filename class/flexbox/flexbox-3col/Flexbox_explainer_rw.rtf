@@ -1,0 +1,434 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf810
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww9500\viewh12300\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\b\fs36 \cf0 Flexbox \
+\
+
+\b0 So we\'92re starting with a basic page.\
+\
+What do we have on it? \
+Navigation\
+Header\
+Article\
+Two asides\
+Footer\
+\
+Our goal is to create a responsive site with these elements using flex box.\
+\
+Let\'92s add some classes and divs to the index before we get to the css.\
+\
+In the ul, let\'92s give it a class of navigation.\
+	<ul class=\'93navigation\'94>\
+Let\'92s wrap the rest of the content together.\
+<div class=\'93wrapper\'94>\
+\
+We\'92re going to give the header a class.\
+<header class=\'93header\'94> (DON\'92T NEED TO DO THIS)\
+The article will get the class of main.\
+<article class=\'93main\'94>\
+\
+We have two aside\'92s. These are similar to what we\'92re talking about with sidebars. We want them to have some of the same characteristics, but we\'92ll also need to do some things independently of the other. So we\'92re going to put them in two classes.\
+\
+<aside class=\'93aside-1\'94>\
+<aside class=\'93aside-2\'94>\
+\
+And finally we\'92ll add a class to the footer\
+<footer class=\'93footer\'94> (DON\'92T NEED TO DO THIS)\
+\
+OK, let\'92s turn to our styles.\
+\
+We\'92ll design for mobile first with a stacked navigation and then expand out to desktop.\
+\
+So let\'92s do some of the stuff we already know how to do.\
+We\'92ll get rid of the bullets, define our margin and set our background color\
+\
+.navigation\{\
+	list-style: none;\
+	margin: 0;\
+	background: gray;\
+\}\
+\
+We\'92re also going to make the padding 0\
+\
+padding: 0;\
+\
+Let\'92s also make that image width 100% of its container: \
+\
+img \{\
+	width: 100%; \
+\}\
+\
+And then we\'92ll set some declarations for the links in our navigation. We\'92ll get rid of the underline, set a block display, add some padding and change the text color.\
+.navigation a \{\
+	text-decoration: none\
+	display: block;\
+	padding: 10px;\
+	color: white;\
+\}\
+\
+Let\'92s add our flex box properties to the navigation, so we can adjust it for mobile.\
+\
+.navigation\{\
+	display: flex;\
+	flex-flow: column;\
+\}\
+\
+Let\'92s further add in some borders for the navigation: \
+\
+.navigation a \{\
+    text-align:center;\
+    padding: 10px;\
+    border-bottom:1px solid black;\
+\}\
+\
+And we can use what\'92s called a pseudo-class to get rid of the border on the bottom: \
+\
+.navigation li:last-of-type a\{\
+  border-bottom: none;\
+\}\
+\
+So what about desktop?\
+\
+Now we want these elements to be in a row on desktop. So let\'92s add a media query:\
+\
+@media (min-width 800px)\{\
+\
+\}\
+\
+And we\'92ll want the nav to be in a row instead of a column.\
+Flex-flow is shorthand for flex-direction and flex-wrap. \
+\
+.navigation \{\
+	flex-flow: row wrap;\
+\}\
+Now we want our nav to be flush right on desktop. We\'92ll use justify-content to set this. Flex-end puts it at the end of the content box.\
+\
+.navigation \{\
+	flex-flow: row wrap;\
+	justify-content: flex-end;\
+\}\
+\
+So this works, but the borders on the nav look weird. We can use the media queries to remove what we added once before, so let\'92s do that: \
+\
+.navigation a \{\
+        border: none;\
+    \}\
+\
+\
+On desktop, we can use the hover property, so let\'92s add that within our media query.\
+.navigation a:hover \{\
+	background: black;\
+\}\
+\
+\
+So now that we have our navigation the way we want it, let\'92s mess with the other elements on the page.\
+\
+Let\'92s give colors to the different tags and classes so we can see how the pieces are moving on the page. (Do this up above the media query) \
+\
+header\{\
+  background: tomato;\
+\}\
+\
+footer\{\
+  background: lightgreen;\
+\}\
+\
+article\{\
+  background: deepskyblue;\
+\}\
+\
+.aside-1\{\
+  background: gold;\
+\}\
+\
+.aside-2\{\
+  background: hotpink;\
+\}\
+\
+We have the wrapper that contains all of the pieces of content here. So let\'92s use that to say we\'92re going to use flex box. (Remember, we haven\'92t set it on anything other than the nav until now) \
+\
+We actually want to do this before our media query: \
+\
+.wrapper \{\
+	display: flex;\
+\}\
+\
+When we see this then we know that the flex system is working. \
+\
+Then we want our elements to distribute horizontally, so we want them to function in a row and wrap if there\'92s overflow.\
+\
+flex-flow: row wrap;\
+\
+So now they\'92re wrapping and overflowing properly. \
+\
+Next, we\'92re going to set the flex property on the different classes within the wrapper. We want the items to be equal in size and fill 100%. We\'92ll also add some padding to give them some room. Remember that flex is our shorthand property for flex-grow, flex-shrink and flex-basis. You can leave off flex-shrink. \
+\
+header, article, aside, footer \{\
+      flex: 1 100%;\
+      padding: 10px;\
+   \}\
+ \
+\
+Let\'92s use our @media property to define what to do on desktop. So this time we\'92re going to change the flex property for the aside class. We don\'92t want the aside to fill at 100% as we set for mobile. We\'92ll set to auto so any extra space is equally distributed to the elements.\
+\
+@media (min-width: 800px)\{\
+	.aside\{\
+		flex: 1 auto;\
+	\}\
+\}\
+\
+So this puts the asides on the same line. But what if we wanted them on the same line as the main bar.\
+\
+We still want the main bar to be the largest, but we can make room for the asides on the same line at the desktop width. The flex property is shorthand for three things \'97 flex-shrink, flex-grow and flex-basis. Flex-shrink and flex-grow take an integer value. Flex-shrink is an optional value. So we\'92ll set the flex-grow property to 3. That means the element is three times as flexible as one with a flex of 1. We also don\'92t need to factor in the extra space around the content, so we\'92ll set the flex-basis for 0px.\
+\
+@media all and (min-width:800px)\{\
+	article \{\
+		flex: 3 0px;\
+	\}\
+\}\
+\
+\
+Now what if wanted the order to be different, so we wanted aside 1 to be to the left of the main section and aside 2 on the right.\
+\
+We don\'92t want to change the source order (how it is organized in the html file) because we like it that way for mobile. But we can change the order for larger size screens using flex box.\
+\
+We\'92re going to make aside-1 No. 1, main No. 2, aside-2 No. 3 and footer No. 4.\
+\
+It\'92s a simply declaration, and we\'92ll it within our 800px min-width definition.\
+  .aside-1\{\
+    order:1;\
+  \}\
+  article \{\
+    order: 2;\
+  \}\
+  .aside-2\{\
+    order: 3;\
+  \}\
+  footer\{\
+    order: 4;\
+  \}\
+\
+Let\'92s put the image to the left of the text for desktop.\
+\
+There are a couple of different ways to do this: One you\'92ll see pretty often is to have it happen with a \'93float\'94 command. \
+\
+img \{\
+        width: 45%;\
+        float: left;\
+    \}\
+\
+You can float left or right, but not center \'97 and what you can see from this is that the paragraphs of text will flow around the floated image. (It\'92s not lining up because there\'92s margin set on the paragraphs by default \'97 it\'92s a browser setting.) \
+\
+Let\'92s add some margin to the image, and take some margin off the text: \
+\
+    .first \{\
+        margin-top: 0; \
+    \}\
+\
+We\'92ll need to add a class of \'93first\'94 to the first paragraph of text to do that: \
+\
+<p class=\'93first\'94> \
+\
+Show image at different sizes and how text wraps around it \'97 could also set margin on the bottom of the image if we want. Explain that this only applies on the size set in our media query. \
+\
+The second way to do this is to not do it as a floated item \'97 but to declare flex properties on the article. \
+\
+In the media query for desktop: \
+\
+article \{\
+  display:flex;\
+\}\
+\
+Then we want the image and text to be next to each other horizontally, so we\'92ll define the flex-flow as row.\
+\
+  flex-flow:row;\
+\
+But our image is a mess! Let\'92s work on the sizing to make it work in the space better.\
+\
+img\{\
+  width:45%;\
+\}\
+\
+OK, so now our text is being all weird, and our image is skewed. Let\'92s take these one issue at a time: \
+\
+We can first use what\'92s called the object-fit property on the image itself. Object-fit takes a few different values (show website) \
+\
+So that works for the image, but the text is still weird. Let\'92s turn on wrapping and see what happens: \
+\
+    article \{\
+        flex-wrap: wrap; \
+    \}\
+\
+That\'92s not ideal either. \
+\
+Stepping back for a minute, let\'92s consider what we need to do: we\'92re essentially treating the image as one thing, and the text as another. But the way the Flexbox logic works, we have an image as a child item of a flex container, and also several paragraphs as child items \'97 they\'92re being treated equally within that context. \
+\
+We could put a container around each of them \'97 use div tags to do that.\
+\
+div class=\'93image\'94 \
+\
+div class=\'93story\'94\
+\
+.image \{\
+        width: 45%;\
+    \}\
+\
+    .story \{\
+        width: 45%;\
+    \}\
+\
+We need a little bit of margin between the image and the text so we\'92ll set that:\
+\
+  margin-right:10px;\
+\
+There we go. When it\'92s on mobile, the image is stacked, and on desktop, the image is to the left of the text but still within the main section.\
+\
+Let\'92s just clean up that top margin a bit: \
+\
+    .first \{\
+        margin-top: 0;\
+    \}\
+\
+And we\'92re done. \
+\
+Other things we could do with Flexbox.\
+\
+If you want one of your menu items flush left:\
+\
+Let\'92s add a class to that nav item. \
+\
+In our media query, we want to set the margin-right to auto \
+.first\{\
+	margin-right: auto;\
+\}\
+\
+\
+
+\b\fs46 Accordion
+\b0\fs36 \
+\
+In our html file, we\'92re going to create the clickable (or tappable) items for the accordion using radio buttons.\
+\
+So we\'92re going to group each tab in a div and then create the button and label and the additional content:\
+<div class=\'93tab\'94>\
+<input id=\'93tab-1\'94 type=\'93radio\'94 name=\'93tabs\'94>\
+<label for=\'93tab-1\'94>Label One</label>\
+<div class=\'93tab-content\'94>\
+<ul>\
+<li><a href="#">Link 1</a></li>\
+<li><a href="#">Link 1</a></li>\
+<li><a href="#">Link 1</a></li>\
+</ul>\
+</div>\
+</div>\
+\
+Let\'92s repeat that for additional tabs.\
+\
+Now, we\'92ll work on the CSS. \
+\
+There\'92s some basic styling already in your file, and we\'92re going to work on the accordion.\
+\
+Let\'92s make the tab-group classes function with flex box the way we did previously.\
+\
+.tab-group\{\
+	display: flex;\
+	flex-flow: column;\
+\}\
+\
+Then we need to manage the input button. If you look now, the radio button is off to the side and is still a button.\
+\
+We\'92ll hide them and position them absolutely and set them in the left, top corner and use z-index to push them out of the way.\
+\
+.tab input \{\
+position: absolute;\
+left: 0;\
+top: 0;\
+z-index: -999;\
+\}\
+\
+Input label to toggle the radio buttons to show the other content. We\'92ll style that label a bit. The line height will give us a larger clickable area. We\'92ll add padding to get it off the left corner and margin to provide space between tabs.\
+\
+.tab label \{\
+background: #72d2c6;\
+color: #fff;\
+display: block;\
+font-weight: bold;\
+line-height: 3;\
+padding-left: .5em;\
+margin-bottom: .5em;\
+\}\
+\
+Then we\'92ll set the focus and hover styles to give it a lighter color.\
+\
+.tab input:focus + label,\
+.tab label:hover\{\
+background: #85D8CE;\
+\}\
+\
+Now we\'92re going to hide the tab content by setting a max height of 0 and overflow is hidden. We\'92ll add a transition so it opens smoothly.\
+\
+.tab-content \{\
+max-height: 0;\
+overflow: hidden;\
+transition: all .35s;\
+\}\
+\
+Then we\'92ll style the navigation within the tab.\
+\
+.subnav\{\
+  list-style: none;\
+  text-align:center;\
+  padding: 0;\
+\}\
+\
+.tab-content a \{\
+text-decoration: none;\
+  font-size: 1em;\
+  font-weight: bold;\
+  display: block;\
+  text-align:center;\
+  color: white;\
+  padding: 10px;\
+\}\
+\
+Now we\'92ll create the style that will open our content when selected. We\'92ll tell it to apply this when the input is checked to the tab content. You\'92d want to set your max height to the height of your largest content.\
+\
+.tab input:checked ~ .tab-content \{\
+max-height: 9em;\
+\}\
+\
+What about on desktop?\
+\
+@media (min-width: 800px)\{\
+  .tab-group\{\
+    display:flex;\
+    flex-flow:row;\
+    justify-content:flex-start;\
+  \}\
+\
+  .tab label\{\
+    padding:0 10px;\
+  \}\
+\
+  .tab label:hover ~ .tab-content\{\
+  	max-height:9em;\
+  \}\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+\
+}
